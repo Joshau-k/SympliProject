@@ -1,6 +1,6 @@
 using System;
 
-namespace SympliProject.Models
+namespace SearchScrapper.Models
 {
     public class ErrorViewModel
     {

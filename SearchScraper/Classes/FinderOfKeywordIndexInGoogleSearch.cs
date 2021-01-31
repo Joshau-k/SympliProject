@@ -50,5 +50,12 @@ namespace SearchScraper.Test
             Assert.That(count, Is.EqualTo(100));
         }
 
+        [SetUp]
+        public void Setup()
+        {
+            var cache = new WebCache();
+            cache.Clear();
+        }
+
     }
 }

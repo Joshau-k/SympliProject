@@ -1,8 +1,48 @@
-﻿@{
+﻿@model SearchRequestModel
+@{
     ViewData["Title"] = "Home Page";
+}
+
+@{
+
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    foreach (var type in SearchEngine.SearchEngineList)
+    {
+        listItems.Add(new SelectListItem
+        {
+            Text = type.ToString(),
+            Value = ((int)type).ToString()
+        });
+    }
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <p>Check a search engine to see how your business SEO performs</p>
+    <div>
+        <form method="post" action="">
+            @*@Html.BeginForm("submit", "Home", FormMethod.Post)*@
+
+            @Html.Label("SearchEngine", "Search Engine")
+            @Html.DropDownListFor(m => m.SearchEngine, listItems, "-- Select Search Engine --")
+            @*@Html.DropDownListFor(model => SearchEngine.SearchEngineList, listItems, "-- Select Search Engine --")*@
+            <br>
+            @Html.Label("SearchText", "Search Text")
+            @Html.TextBoxFor(m => m.SearchText)
+            @*@Html.TextBox("SearchText", "")*@
+            <br>
+            @Html.Label("Keywords", "Buisness SEO Text")
+            @Html.TextBoxFor(m => m.Keywords)
+            @*@Html.TextBox("KeywordsText", "")*@
+            <br>
+            <input type="submit" value="Submit" class="submit" />
+            @*@Html.EndForm()*@
+        </form>
+    </div>
+
+    <div>
+        <div class="@(Model.Result == null?"visible-item":"hidden-item")">
+            @Model.Result
+        </div>
+    </div>
+ </div>
