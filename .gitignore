@@ -1,5 +1,6 @@
-/SearchScrapper/bin
-/SearchScrapper/obj
+/SearchScraper/bin
+/SearchScraper/obj
+/.vs/SympliProject/v16
 /SearchScraper/bin/Debug/netcoreapp3.1
 /SearchScraper/obj/SearchScraper.csproj.nuget.g.targets
 /SearchScraper/obj/SearchScraper.csproj.nuget.g.props
