@@ -167,7 +167,7 @@ namespace SearchScraper.Test
         [Test]
         public void TestCacheWorksWithTestHtmlDoc()
         {
-            TextReader tr = new StreamReader(@"TestSearchResult.txt");
+            TextReader tr = new StreamReader(@"TestFiles/TestSearchResult.txt");
             string html = tr.ReadToEnd();
 
             var cache = new WebCache();

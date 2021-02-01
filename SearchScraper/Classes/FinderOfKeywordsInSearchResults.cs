@@ -61,7 +61,7 @@ namespace SearchScraper.Test
         [Test]
         public void TestActualData()
         {
-            TextReader tr = new StreamReader(@"TestSearchResult.txt");
+            TextReader tr = new StreamReader(@"TestFiles\TestSearchResult.txt");
             string html = tr.ReadToEnd();
             var organiser = new GoogleSearchResultsOrganiser(html);
             var finder = new FinderOfKeywordsInSearchResults(organiser, "e-settlements");
@@ -72,7 +72,7 @@ namespace SearchScraper.Test
         [Test]
         public void TestBingActualData()
         {
-            TextReader tr = new StreamReader(@"TestBingSearchResult.txt");
+            TextReader tr = new StreamReader(@"TestFiles\TestBingSearchResult.txt");
             string html = tr.ReadToEnd();
             var organiser = new BingSearchResultsOrganiser(html);
             var finder = new FinderOfKeywordsInSearchResults(organiser, "e-settlements");
