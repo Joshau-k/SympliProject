@@ -1,9 +1,5 @@
-﻿using System;
-using HtmlAgilityPack;
-using System.Collections.Generic;
-using NUnit;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using System.Linq;
 using System.IO;
 
 namespace SearchScraper

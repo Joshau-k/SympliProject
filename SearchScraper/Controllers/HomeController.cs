@@ -3,10 +3,7 @@ using Microsoft.Extensions.Logging;
 using SearchScraper;
 using SearchScrapper.Models;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SearchScrapper.Controllers
 {
@@ -35,11 +32,11 @@ namespace SearchScrapper.Controllers
                 searchRequest.Result = $"Found in position {location}"; ;
             
             }
-            catch (NotImplementedException ex)
+            catch (NotImplementedException)
             {
                 searchRequest.Result = $"{searchRequest.SearchEngine.ToString()} is not yet available";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 searchRequest.Result = $"Could not perform search";
             }

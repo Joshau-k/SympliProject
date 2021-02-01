@@ -1,9 +1,6 @@
 ﻿using System;
 using HtmlAgilityPack;
-using System.Collections.Generic;
-using NUnit;
 using NUnit.Framework;
-using System.Linq;
 using System.Net;
 using System.IO;
 
@@ -42,11 +39,7 @@ namespace SearchScraper
                 cache.AddEntry(fullUrl, html);
                 return html;
             }
-
-            
         }
-
-        
     }
 }
 

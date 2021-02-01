@@ -1,10 +1,7 @@
 ﻿using System;
-using HtmlAgilityPack;
 using System.Collections.Generic;
-using NUnit;
 using NUnit.Framework;
 using System.Linq;
-using System.Net;
 using System.IO;
 using System.Threading;
 
