@@ -1,5 +1,0 @@
-﻿To do:
-- Get integration class to work
-- Presentation/Input UI
-- Ads and 'near me' results
-- Results on next page

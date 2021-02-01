@@ -16,9 +16,9 @@ namespace SearchScraper
             doc.LoadHtml(html);
         }
 
-        public List<HtmlNode> GetNodesByProperty(string name, string value)
+        public List<HtmlNode> GetNodesByProperty(string elementName, string name, string value)
         {
-            return doc.DocumentNode.SelectNodes($"//div[@{name}='{value}']")?.AsEnumerable()?.ToList() ?? new List<HtmlNode>();
+            return doc.DocumentNode.SelectNodes($"//{elementName}[@{name}='{value}']")?.AsEnumerable()?.ToList() ?? new List<HtmlNode>();
         }
        
     }
@@ -40,7 +40,7 @@ namespace SearchScraper.Test
         public void TestGetNodeByClass()
         {
             var parser = new HtmlParser("<html><body><div class='foo'>text</div></body></html>");
-            var nodes = parser.GetNodesByProperty("class", "foo");
+            var nodes = parser.GetNodesByProperty("div", "class", "foo");
             Assert.That(nodes, Has.Count.EqualTo(1));
             var node = nodes.Single();
             Assert.That(node.InnerHtml, Is.EqualTo("text"));
@@ -51,7 +51,7 @@ namespace SearchScraper.Test
         public void TestGetMultipleNodesByClass()
         {
             var parser = new HtmlParser("<html><body><div class='foo'>text</div><div class='foo'>text2</div></body></html>");
-            var nodes = parser.GetNodesByProperty("class", "foo");
+            var nodes = parser.GetNodesByProperty("div", "class", "foo");
             Assert.That(nodes, Has.Count.EqualTo(2));
             var node1 = nodes.First();
             Assert.That(node1.InnerHtml, Is.EqualTo("text"));
@@ -65,7 +65,7 @@ namespace SearchScraper.Test
         public void TestGetNodesByClassWithMoreInside()
         {
             var parser = new HtmlParser("<html><body><div class='foo'><p>test</p></div><div class='foo'><p>test2</p></div></body></html>");
-            var nodes = parser.GetNodesByProperty("class", "foo");
+            var nodes = parser.GetNodesByProperty("div", "class", "foo");
             Assert.That(nodes, Has.Count.EqualTo(2));
             var node1 = nodes.First();
             Assert.That(node1.InnerHtml, Is.EqualTo("<p>test</p>"));

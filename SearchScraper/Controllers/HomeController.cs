@@ -27,20 +27,21 @@ namespace SearchScrapper.Controllers
         [HttpPost]
         public IActionResult Index(SearchRequestModel searchRequest)
         {
-            if (searchRequest.SearchEngine == SearchEngine.SearchEngineType.Google)
-            {
-                var finder = new FinderOfKeywordIndexInGoogleSearch(searchRequest.SearchText);
+            try
+            { 
+                var finder = new KeywordSearcher(searchRequest.SearchEngine, searchRequest.SearchText);
                 int location = 1 + finder.FindIndex(searchRequest.Keywords);
 
                 searchRequest.Result = $"Found in position {location}"; ;
+            
             }
-            else if (searchRequest.SearchEngine == 0)
-            {
-
-            }
-            else
+            catch (NotImplementedException ex)
             {
                 searchRequest.Result = $"{searchRequest.SearchEngine.ToString()} is not yet available";
+            }
+            catch (Exception ex)
+            {
+                searchRequest.Result = $"Could not perform search";
             }
             return View("Index", searchRequest);
         }

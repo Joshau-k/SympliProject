@@ -86,25 +86,6 @@ namespace SearchScraper.Test
             Assert.That(html, Is.EqualTo("value"));
         }
 
-        //[Test]
-        //public void TestSetCache()
-        //{
-        //    new WebCache().AddEntry("key1", "html1");
-        //    var line1 = File.ReadLines("cache.txt").First();
-        //    Assert.That(line1, Is.EqualTo("key1=html1"));
-        //}
-
-        //[Test]
-        //public void TestSetCacheMultiple()
-        //{
-        //    new WebCache().AddEntry("key1", "html1");
-        //    new WebCache().AddEntry("key3", "html4");
-        //    var line1 = File.ReadLines("cache.txt").First();
-        //    var line2 = File.ReadLines("cache.txt").ToList()[1];
-        //    Assert.That(line1, Is.EqualTo("\"key1\"=\"html1\""));
-        //    Assert.That(line2, Is.EqualTo("\"key3\"=\"html4\""));
-        //}
-
         [Test]
         public void TestSetGetCache()
         {
