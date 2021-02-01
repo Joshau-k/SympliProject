@@ -21,22 +21,16 @@
     <p>Check a search engine to see how your business SEO performs</p>
     <div>
         <form method="post" action="">
-            @*@Html.BeginForm("submit", "Home", FormMethod.Post)*@
-
             @Html.Label("SearchEngine", "Search Engine")
             @Html.DropDownListFor(m => m.SearchEngine, listItems, "-- Select Search Engine --")
-            @*@Html.DropDownListFor(model => SearchEngine.SearchEngineList, listItems, "-- Select Search Engine --")*@
             <br>
             @Html.Label("SearchText", "Search Text")
             @Html.TextBoxFor(m => m.SearchText)
-            @*@Html.TextBox("SearchText", "")*@
             <br>
             @Html.Label("Keywords", "Buisness SEO Text")
             @Html.TextBoxFor(m => m.Keywords)
-            @*@Html.TextBox("KeywordsText", "")*@
             <br>
             <input type="submit" value="Submit" class="submit" />
-            @*@Html.EndForm()*@
         </form>
     </div>
 
